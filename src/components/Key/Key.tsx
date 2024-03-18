@@ -4,7 +4,7 @@ import { NOTE_TO_KEY } from '../../utils/setting';
 import {  Button, SxProps } from '@mui/material';
 
 
-
+//
 
 export interface Props {
   note: string
@@ -66,13 +66,19 @@ const Key:React.FC<Props> = ({ note, pressedKeys, playNote }) => {
   return (
     <>  
       {noteIsFlat ? 
-      <Button sx={keyStyle.secondaryButton} className="key-text" variant='contained' onClick={()=> playNote(note)}>{note.toUpperCase()}</Button>
+      <Button  sx={keyStyle.secondaryButton} className="key-text" variant='contained' onClick={()=> playNote(note)}>{note.toUpperCase()}</Button>
        : 
-      <Button sx={keyStyle.mainButton} className="key-text" variant='contained' onClick={()=> playNote(note)}>{note.toUpperCase()}</Button>
+      <Button  sx={keyStyle.mainButton} className="key-text" variant='contained' onClick={()=> playNote(note)}>{note.toUpperCase()}</Button>
       }
     </>
     
   );
 };
+
+/*
+<Button onClick={() => console.log('Botón presionado')}>
+        Botón
+      </Button>
+*/
 
 export default Key;
