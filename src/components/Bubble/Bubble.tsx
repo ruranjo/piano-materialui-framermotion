@@ -68,7 +68,7 @@ const Bubble: React.FC<Props> = ({bubbles, setBubbles}) => {
     <div style={{ position: "absolute", width: "100%", height: "100%", overflow: "hidden",zIndex:-10, }}>
       {bubbles.map((bubble) => (
         <motion.div
-          key={bubble.id}
+          key={bubble.id + bubble.emojiImg}
           style={{
             position: "absolute",
             top: bubble.y,

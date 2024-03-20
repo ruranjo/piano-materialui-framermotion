@@ -9,7 +9,7 @@ import {  Button, SxProps } from '@mui/material';
 export interface Props {
   note: string
   pressedKeys: string[]
-  playNote: (note: string) => void
+  playNote: (note: string, isAction?:boolean) => void
 }
 
 export interface KeyStyle {
@@ -19,8 +19,9 @@ export interface KeyStyle {
 
 const keyStyle: KeyStyle = {
   mainButton:{
-    border: '1px solid black',
+    //border: '1px solid black',
     width: '80px',
+    
     height: '300px',
     backgroundColor: 'white',
     color: 'black',
@@ -31,7 +32,12 @@ const keyStyle: KeyStyle = {
     '&:hover': {
       backgroundColor: 'gray',
       border: 'orangered'
-    }
+    },
+    '@media screen and (max-width: 880px)': {
+      height: '220px',
+      maxWidth:'50px'
+    },
+
   },
   secondaryButton:{
     position: 'relative',
@@ -47,7 +53,13 @@ const keyStyle: KeyStyle = {
     '&:hover':{
       backgroundColor:'gray',
       border:'orangered'
-    }
+    },
+    '@media screen and (max-width: 880px)': {
+      height: '150px',
+      
+      minWidth:'40px'
+      
+    },
   }
 
 }
@@ -66,9 +78,9 @@ const Key:React.FC<Props> = ({ note, pressedKeys, playNote }) => {
   return (
     <>  
       {noteIsFlat ? 
-      <Button  sx={keyStyle.secondaryButton} className="key-text" variant='contained' onClick={()=> playNote(note)}>{note.toUpperCase()}</Button>
+      <Button  sx={keyStyle.secondaryButton} className="key-text" variant='contained' onClick={()=> playNote(note)}>{NOTE_TO_KEY[note].toUpperCase()}</Button>
        : 
-      <Button  sx={keyStyle.mainButton} className="key-text" variant='contained' onClick={()=> playNote(note)}>{note.toUpperCase()}</Button>
+      <Button  sx={keyStyle.mainButton} className="key-text" variant='contained' onClick={()=> playNote(note)}> {NOTE_TO_KEY[note].toUpperCase()}</Button>
       }
     </>
     
