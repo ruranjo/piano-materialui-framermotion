@@ -30,7 +30,7 @@ export interface styledApp {
     book:{
         //border:'1px solid green',
         width:'100%',
-        height:'50%',
+        height:'49%',
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
@@ -60,7 +60,7 @@ const Content:React.FC<Props> = () => {
             id: prevBubbles.length + 1,
             x: Math.random() * window.innerWidth,
             y: window.innerHeight,
-            size: Math.random() * 50 + 20,
+            size: Math.random() * 49 + 20,
             speed: Math.random() * 5 + 10,
             emojiImg: getRandomEmoji(),
         };
